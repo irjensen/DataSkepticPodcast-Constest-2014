@@ -48,20 +48,22 @@ The shape of the data seems to suggest exponential growth.
 There is very little provided data to extrapolate from, so it is going to be important that we choose a model that is motivated by prior knowledge of the system as a whole. Consider the following observations: There is a finite number (at least, in the timeframe of the contest) of people that regularly listen to podcasts and who may be interested in a podcast like Data Skeptic. Furthermore, the more regular listeners there are, the greater the exposure the pocast gets through word of mouth, shares, reviews, etc. It follows, Then, that the number of regular listeners will have a tendency to grow exponentially, but is limited by an upper bound or ***carrying capacity***.
 
 This description is consistent with the [Logistic Funciton](https://en.wikipedia.org/wiki/Logistic_function), so we'll write the number of regular listeners as a generalized logistic function:
-$$\text{Listeners} = \frac{A}{1 + e^{-B(x-C)}}$$
 
-We will make the assumption that the rate of podcast downloads is proportional to the number of listeners, so if $y$ is the function that describes the number of cumulative downloads over time, we can replace the number of listeners with $y$'s first derivative:
 
-$$y' = \frac{A}{1 + e^{-B(x-C)}}$$
+<img src="https://latex.codecogs.com/gif.latex?\frac{A}{1&space;&plus;&space;e^{-B(x-C)}}" title="\frac{A}{1 + e^{-B(x-C)}}" />
+
+We will make the assumption that the rate of podcast downloads is proportional to the number of listeners, so if <img src="https://latex.codecogs.com/gif.latex?y" title="y" /> is the function that describes the number of cumulative downloads over time, we can replace the number of listeners with <img src="https://latex.codecogs.com/gif.latex?y" title="y" />'s first derivative:
+
+<img src="https://latex.codecogs.com/gif.latex?y'&space;=&space;\frac{A}{1&space;&plus;&space;e^{-B(x-C)}}" title="y' = \frac{A}{1 + e^{-B(x-C)}}" />
 
 This yields a differential equation that can be trivially solved by integrating both sides:
 
-$$y = A \left(x + \frac{\log\left(1 + e^{B (C - x)}\right)}{B}\right) + D$$
+<img src="https://latex.codecogs.com/gif.latex?y&space;=&space;A&space;\left(x&space;&plus;&space;\frac{\log\left(1&space;&plus;&space;e^{B&space;(C&space;-&space;x)}\right)}{B}\right)&space;&plus;&space;D" title="y = A \left(x + \frac{\log\left(1 + e^{B (C - x)}\right)}{B}\right) + D" />
 
-This will be the function we use to fit to our data with parameters $A$, $B$, $C$ and $D$
+This will be the function we use to fit to our data with parameters <img src="https://latex.codecogs.com/gif.latex?A" title="A" />, <img src="https://latex.codecogs.com/gif.latex?B" title="B" />, <img src="https://latex.codecogs.com/gif.latex?C" title="C" /> and <img src="https://latex.codecogs.com/gif.latex?D" title="D" />
 
 # Fitting Our Model to the Data <a id="Fitting Our Model to the Data">
-First, define $y$ as a python function.
+First, define <img src="https://latex.codecogs.com/gif.latex?y" title="y" /> as a python function.
 
 
 ```python
