@@ -13,12 +13,12 @@ On the Oct 7 2014 episode of Data Skeptic, Kyle announced a contest to predict t
 This notebook will predict the crossover date.
 
 # Table of Contents
-1. [Visualizing the Data](#Visualizing the Data)
-2. [Model and Motivation](#Model and Motivation)
-3. [Fitting Our Model to the Data](#Fitting Our Model to the Data)
-4. [Making the prediciton](#Making the Prediciton)
+1. [Visualizing the Data](#Visualizing)
+2. [Model and Motivation](#Model)
+3. [Fitting Our Model to the Data](#Fitting)
+4. [Making the prediciton](#Making)
 
-# Visualizing the Data <a id="Visualizing the Data">
+# Visualizing the Data <a id="Visualizing">
 
 
 ```python
@@ -44,7 +44,7 @@ plt.show()
 
 The shape of the data seems to suggest exponential growth.
 
-# Model and Motivation <a id="Model and Motivation">
+# Model and Motivation <a id="Model">
 There is very little provided data to extrapolate from, so it is going to be important that we choose a model that is motivated by prior knowledge of the system as a whole. Consider the following observations: There is a finite number (at least, in the timeframe of the contest) of people that regularly listen to podcasts and who may be interested in a podcast like Data Skeptic. Furthermore, the more regular listeners there are, the greater the exposure the pocast gets through word of mouth, shares, reviews, etc. It follows, Then, that the number of regular listeners will have a tendency to grow exponentially, but is limited by an upper bound or ***carrying capacity***.
 
 This description is consistent with the [Logistic Funciton](https://en.wikipedia.org/wiki/Logistic_function), so we'll write the number of regular listeners as a generalized logistic function:
@@ -62,7 +62,7 @@ This yields a differential equation that can be trivially solved by integrating 
 
 This will be the function we use to fit to our data with parameters <img src="https://latex.codecogs.com/gif.latex?A" title="A" />, <img src="https://latex.codecogs.com/gif.latex?B" title="B" />, <img src="https://latex.codecogs.com/gif.latex?C" title="C" /> and <img src="https://latex.codecogs.com/gif.latex?D" title="D" />
 
-# Fitting Our Model to the Data <a id="Fitting Our Model to the Data">
+# Fitting Our Model to the Data <a id="Fitting">
 First, define <img src="https://latex.codecogs.com/gif.latex?y" title="y" /> as a python function.
 
 
@@ -151,7 +151,7 @@ plt.show()
 
 The fit looks good!
 
-# Making the Prediciton  <a id="Making the Prediciton">
+# Making the Prediciton  <a id="Making">
 Now that we have a working model, we can predict on what day the number of downloads will pass 27,182
 
 
